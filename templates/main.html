@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            
+    <title>Crop predictor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #DADDD8">
+    <style>
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+            width: 100%;
+            background-color: black;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button[type=submit]:hover {
+            background-color: #45a049;
+        }
+        
+        div {
+            border-radius: 5px;
+            background-color: #DADDD8;
+            padding: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+        }
+        </style>
+    <h1 style="color: black;">Crop predictor</h1>
+<div>
+    <form action="{{url_for('predict')}}" method = "POST">
+        <input type="text" name='N' placeholder="ratio of Nitrogen content in soil" required = "required"><br>
+        <input type="text" name='P' placeholder="ratio of Phosphorus content in soil" required = "required"><br>
+        <input type="text" name='K' placeholder="ratio of Potassium content in soil" required = "required"><br>
+        <input type="text" name='temperature' placeholder="temperature in degree Celsius" required = "required"><br>
+        <input type="text" name='humidity' placeholder="relative humidity in %" required = "required"><br>
+        <input type="text" name='ph' placeholder="ph value of the soil" required = "required"><br>
+        <input type="text" name='rainfall' placeholder="rainall in mm" required = "required"><br>
+        <input type="submit">
+    </form>
+</div>
+    
+    <h3>{{prediction_text}}</h3>
+</body>
+</html>
